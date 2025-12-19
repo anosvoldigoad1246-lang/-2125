@@ -1,1 +1,49 @@
+/* TYPEWRITER MESSAGE */
+const text = `
+Sadia…
+Tum meri zindagi ka wo hissa ho
+jiske bina sab kuch adhoora lagta hai 😔❤️
+
+Tumhari muskurahat meri himmat hai,
+tumhari khamoshi meri zimmedari,
+aur tumhara saath meri sabse badi jeet hai.
+
+Main har din tumse mohabbat karta hoon,
+aur har janam tumhara rehna chahta hoon ♾️
+`;
+
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typewriter").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+typeWriter();
+
+/* SHOW LOVE */
+function showLove() {
+  document.getElementById("love").classList.remove("hidden");
+}
+
+/* COUNTDOWN TO 5 JAN */
+function updateCountdown() {
+  const now = new Date();
+  let year = now.getFullYear();
+  let birthday = new Date(`January 5, ${year}`);
+
+  if (now > birthday) {
+    birthday = new Date(`January 5, ${year + 1}`);
+  }
+
+  const diff = birthday - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+  document.getElementById("countdown").innerHTML =
+    `🎂 Sadia ka birthday aane me <b>${days}</b> din baaki ❤️`;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 86400000);
 
